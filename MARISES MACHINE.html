@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+    
+<header>
+
+        <h1>Marise's Machine</h1>
+
+        <ul>
+                <li><a href="https://github.com/GustavoFernandesSP">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/gustavo-fernandes-628450231/">LinkedIn</a></li>
+                <li><a href="https://www.sptech.school/">SpTech</a></li>
+        </ul>
+
+</header>
+
+<main>
+    <center>
+        
+
+<br>
+
+        <h3>Converter Decimal</h3>
+        <input id="demo1" type="text" placeholder="Digite o valor em decimal">
+
+<br>
+
+        <h3>converter para:</h3>
+
+
+        <p onclick="aparecer_octal()" type="checkbox"><b id="demo2">Octal</b></p>
+        
+
+<br>
+
+        <p onclick="aparecer_hexa()" type="checkbox"><b id="demo3">Hexadecimal</b></p>
+        
+        
+<br>
+
+        <p onclick="aparecer_bin()" type="checkbox"><b id="demo4">Binário</b></p>
+
+<br><br>
+
+<button id="button_convert" onclick="converter()">Converter</button>
+    </center>
+</main>
+
+
+
+<div id="Pleyer">
+<img class="btnClose" onclick="FecharPlayer()" src="./icon/close.png" alt="">
+        <video id="video1" class="video" src="./Music/U2 - Ordinary Love (Live on The Tonight Show).mp4">
+        </video>
+        
+        <div class="controle">
+                <img class="btn" onclick="retroceder()" src="./icon/left-chevron.png" alt="">
+                <img class="btn" id="pousEplay" onclick="Play()" src="./icon/play.png" alt="">
+                <img class="btn" onclick="Stop()" src="./icon/stop.png" alt="">
+                <img class="btn" onclick="avançar()" src="./icon/fast-forward.png" alt="">
+        </div>
+
+</div>
+
+<img id="imgClicarDisplayNone" onclick="ExibirVideo()" class="ImgVideoPlayer" src="./icon/video-player.png" alt="">
+
+</body>
+</html>
+<script>
+
+        function FecharPlayer(){
+        var Player = document.getElementById("Pleyer");
+
+        Player.style.display = `none`;
+
+        var img = document.getElementById("imgClicarDisplayNone");
+
+        img.style.display = `block`;
+        }
+
+        function ExibirVideo(){
+                var Player = document.getElementById("Pleyer");
+
+                Player.style.display = `block`;
+
+                var img = document.getElementById("imgClicarDisplayNone");
+
+                img.style.display = `none`;
+        }
+
+        let video = document.getElementById("video1");
+
+        function retroceder() {
+                video.currentTime -= 15;
+        }
+
+        function Play() {
+                video.play();
+        }
+
+        function Stop() {
+                video.pause();
+        }
+
+        function avançar() {
+                video.currentTime += 15;
+        }
+
+
+
+
+
+function converter() {
+    
+    var decimal = Number (demo1.value);
+
+let octal = decimal.toString(8);
+
+let hexadecimal = decimal.toString(16);
+
+let binaria = decimal.toString(2);
+
+console.log (decimal);
+console.log (octal);
+console.log (hexadecimal);
+console.log (binaria);
+
+document.getElementById("demo1").innerHTML = ` ${decimal}`;
+document.getElementById("demo2").innerHTML = `Octal: ${octal}`;
+document.getElementById("demo3").innerHTML = `Hexadecimal: ${hexadecimal}`;
+document.getElementById("demo4").innerHTML = `Binário: ${binaria}`;
+
+
+}                                                                                               
+
+
+document.bgColor = "#00ffff";
+</script>
+
+
+<style>
+
+        .btnClose:hover{
+                background-color: rgba(255, 0, 0, 0.425);
+        }
+
+        .btnClose{
+                margin-top: 10px;
+                margin-left: 15px;
+                width: 35px;
+                height: 35px;
+                cursor: pointer;
+        }
+
+        .ImgVideoPlayer:hover{
+                background-color: rgba(0, 0, 0, 0.219);
+                border-radius: 25px;
+                padding: 2px;
+        }
+
+        .ImgVideoPlayer{
+                margin-top: 10%;
+                width: 80px;
+                margin-left: 90%;
+                cursor: pointer;
+                
+        }
+
+        .btn{
+                cursor: pointer;
+                display: inline-flex;
+                width: 35px;
+                margin: 10px;
+        }
+
+        .btn:hover{
+                background-color: rgba(0, 0, 0, 0.185);
+                margin: 7px;
+                padding: 4px;
+                border-radius: 25px;
+        }
+
+
+        .video{
+                width:100%;
+                height: 195px;
+                border-radius: 25px;
+                margin-top: 5px;
+        }
+
+        .controle{
+                width: 100%;
+                height:62px;
+                text-align: center;
+        }
+
+        body{   
+                font-family: sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #026773;
+        }
+        
+        a{color: black;
+                text-decoration: none;}
+        
+        header{
+                justify-content: space-around;     
+                margin: 1rem;
+                display: flex;
+        }
+        ul{     padding: .5rem;
+                display: inline-flex;
+                list-style: none;
+                color: black;
+        }
+        li{
+                font-size: larger;
+                margin-left:2rem;
+                padding: 7px;
+        
+                border-radius: 25px;
+        }
+        
+        li:hover{
+        
+                background-color: rgba(49, 122, 124, 0.466);
+        }
+                
+        #button_convert{
+                border-radius:25px;
+                cursor: pointer;
+        }
+        main{
+                background-color:    #3CA6A6   ;
+                border: 1px solid black;
+                width: 30%;
+                height: 400px;
+                border-radius: 25px;
+                margin: auto;
+                margin-top: 50px;
+        }
+
+
+
+
+        #Pleyer{
+                display: none;
+                margin: auto;
+                margin-top: 50px;
+                width: 400px;
+                height: 305px;
+                border-radius: 25px;
+                border: 1px solid black;
+                background-color:#F2E3D5;
+        }
+
+
+
+
+
+
+            </style>
+
